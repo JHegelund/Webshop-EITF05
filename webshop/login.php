@@ -19,18 +19,20 @@
 	$myusername = stripslashes($myusername);
 	$mypassword = stripslashes($mypassword);
 
-	//echo "läget1";
+	$sql = "SELECT passwd from users where username= ?";
 
-	$result = $db->query("SELECT passwd FROM users WHERE username = '$myusername'");
+	try {
+			$stmt = $db->prepare($sql);
+			$stmt->execute(array($myusername));
+			$result = $stmt->fetchAll();
+		} catch (PDOException $e) {
+			$error = "*** Internal error: " . $e->getMessage() . "<p>" . $query;
+			die($error);
+		}
 
-	if ($result->num_rows > 0) {
-		echo "läget2";
-    	while($row = $result->fetch_assoc()) {
-        $passwd = $row["passwd"];
-    	}
-    }
-
-	//echo $passwd;
+		foreach($result as $result){
+			$passwd = $result[0];
+		}
 		
 	if(password_verify($mypassword, $passwd)){
 		// Register $myusername, $mypassword and print "true"
@@ -39,6 +41,6 @@
 	}
 	else {
 		//return the error message
-		//echo "<div class=\"alert alert-danger alert-dismissable\"><button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-hidden=\"true\">&times;</button>Fel användarnamn eller lösenord.</div>";
+		echo "<div class=\"alert alert-danger alert-dismissable\"><button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-hidden=\"true\">&times;</button>Fel användarnamn eller lösenord.</div>";
 	}
 ?>
