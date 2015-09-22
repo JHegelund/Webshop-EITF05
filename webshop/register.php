@@ -21,8 +21,10 @@
 	$myusername = stripslashes($myusername);
 	$mypassword = stripslashes($mypassword);
 	$myaddress = stripslashes($myaddress);
+
+	$hashedpassword = password_hash($mypassword, PASSWORD_DEFAULT);
 		
-	$stmt = $db->query("INSERT INTO users VALUES ('$myusername', '$mypassword', '$myaddress')");
+	$stmt = $db->query("INSERT INTO users VALUES ('$myusername', '$hashedpassword', '$myaddress')");
 	// rowCount() is counting table row
 	// If result matched $myusername and $mypassword, table row must be 1 row
 	if($stmt){
