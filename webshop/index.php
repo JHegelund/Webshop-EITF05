@@ -15,6 +15,7 @@ include ('navbar.php')
             <div class="col-lg-12 text-center">
                 <h1>Välkommen</h1>
                 <p class="lead">Registrera dig för att ta del av skånes bästa öl!</p>
+                <center><img src="img/home.png" width="25%" height="25%" class="img-responsive"></center>
             </div>
         </div>
         <!-- /.row -->
