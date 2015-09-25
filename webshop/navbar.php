@@ -1,3 +1,8 @@
+<?php
+
+session_start();
+?>
+
 <!-- Navigation -->
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
         <div class="container">
@@ -22,6 +27,27 @@
                     </li>
                     <li>
                         <a href="#">Checka ut</a>
+                    </li>
+                    <li>
+                    <?php
+                    $t = isset($_SESSION['user']);
+
+                    if ($t) {
+                    $user = $_SESSION['user'];
+                    echo "<a>Inloggad som: $user</a>";
+                    } else {
+                    }
+                    ?>
+                    </li>
+                    <li>
+                    <?php
+                    $t = isset($_SESSION['user']);
+
+                    if ($t) {
+                    echo "<a href=\"logoutservice.php\">Logga ut</a>";
+                    } else {
+                    }
+                    ?>
                     </li>
                 </ul>
             </div>

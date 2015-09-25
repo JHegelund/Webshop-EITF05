@@ -2,7 +2,7 @@
 
 session_start();
 
-
+$_SESSION['user'] = "Niclas";
 include ('header.php');
 include ('navbar.php')
 
