@@ -1,49 +1,59 @@
 <?php
-	
-	//ob_start();
-	session_start();
-	include_once 'config.php';
-	// Connect to server and select databse.
-	try
-	{
-		$pdo_options[PDO::ATTR_ERRMODE] = PDO::ERRMODE_EXCEPTION;
-		$db = new PDO('mysql:host='.$host.';dbname='.$db_name.';charset=utf8', $username, $password);
-	}
-	catch(Exception $e)
-	{
-		die('Error : ' . $e->getMessage());
-	}	
-	// Define $myusername and $mypassword 
-	$myusername = $_POST['inputEmail']; 
-	$mypassword = $_POST['inputPassword'];
-	$myaddress = $_POST['inputAddress']; 
-	// To protect MySQL injection
-	$myusername = stripslashes($myusername);
-	$mypassword = stripslashes($mypassword);
-	$myaddress = stripslashes($myaddress);
 
-	$pattern = '/^(?!(?:(?:\\x22?\\x5C[\\x00-\\x7E]\\x22?)|(?:\\x22?[^\\x5C\\x22]\\x22?)){255,})(?!(?:(?:\\x22?\\x5C[\\x00-\\x7E]\\x22?)|(?:\\x22?[^\\x5C\\x22]\\x22?)){65,}@)(?:(?:[\\x21\\x23-\\x27\\x2A\\x2B\\x2D\\x2F-\\x39\\x3D\\x3F\\x5E-\\x7E]+)|(?:\\x22(?:[\\x01-\\x08\\x0B\\x0C\\x0E-\\x1F\\x21\\x23-\\x5B\\x5D-\\x7F]|(?:\\x5C[\\x00-\\x7F]))*\\x22))(?:\\.(?:(?:[\\x21\\x23-\\x27\\x2A\\x2B\\x2D\\x2F-\\x39\\x3D\\x3F\\x5E-\\x7E]+)|(?:\\x22(?:[\\x01-\\x08\\x0B\\x0C\\x0E-\\x1F\\x21\\x23-\\x5B\\x5D-\\x7F]|(?:\\x5C[\\x00-\\x7F]))*\\x22)))*@(?:(?:(?!.*[^.]{64,})(?:(?:(?:xn--)?[a-z0-9]+(?:-+[a-z0-9]+)*\\.){1,126}){1,}(?:(?:[a-z][a-z0-9]*)|(?:(?:xn--)[a-z0-9]+))(?:-+[a-z0-9]+)*)|(?:\\[(?:(?:IPv6:(?:(?:[a-f0-9]{1,4}(?::[a-f0-9]{1,4}){7})|(?:(?!(?:.*[a-f0-9][:\\]]){7,})(?:[a-f0-9]{1,4}(?::[a-f0-9]{1,4}){0,5})?::(?:[a-f0-9]{1,4}(?::[a-f0-9]{1,4}){0,5})?)))|(?:(?:IPv6:(?:(?:[a-f0-9]{1,4}(?::[a-f0-9]{1,4}){5}:)|(?:(?!(?:.*[a-f0-9]:){5,})(?:[a-f0-9]{1,4}(?::[a-f0-9]{1,4}){0,3})?::(?:[a-f0-9]{1,4}(?::[a-f0-9]{1,4}){0,3}:)?)))?(?:(?:25[0-5])|(?:2[0-4][0-9])|(?:1[0-9]{2})|(?:[1-9]?[0-9]))(?:\\.(?:(?:25[0-5])|(?:2[0-4][0-9])|(?:1[0-9]{2})|(?:[1-9]?[0-9]))){3}))\\]))$/iD';
+session_start();
 
 
-	if (preg_match($pattern, $myusername) === 1) {
-    	// emailaddress is valid
-	} 
-	else {
-		echo "<div class=\"alert alert-danger alert-dismissable\"><button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-hidden=\"true\">&times;</button>Ange giltig e-mail.</div>";
-		exit();
-	}
+include ('header.php');
+include ('navbar.php')
 
-	$hashedpassword = password_hash($mypassword, PASSWORD_DEFAULT);
-		
-	$stmt = $db->query("INSERT INTO users VALUES ('$myusername', '$hashedpassword', '$myaddress')");
-
-	// True if user was inserted.
-	if($stmt){
-		echo "<div class=\"alert alert-success\">Kontot har skapats.</div>";
-	}
-	else {
-		//return the error message
-		echo "<div class=\"alert alert-danger alert-dismissable\"><button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-hidden=\"true\">&times;</button>Användaren finns redan.</div>";
-	}
-	//ob_end_flush();
 ?>
+<link href='css/login.css' type='text/css' rel='stylesheet'/>
+
+    <!-- Page Content -->
+    <div class="container">
+
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <div class="container">
+
+                    <!-- Form start -->
+                    <form class="form-signin" id="register" name="register">
+                        <h2 class="form-signin-heading">Registrera</h2>
+
+                        <label for="inputEmail" class="sr-only">Epost</label>
+                        <input type="email" id="inputEmail" class="form-control" placeholder="E-post" required autofocus>
+
+                        <label for="inputPassword" class="sr-only">Lösenord</label>
+                        <input type="password" id="inputPassword" class="form-control" placeholder="Lösenord" required>
+
+                        <label for="inputAddress" class="sr-only">Address</label>
+                        <input type="address" id="inputAddress" class="form-control" placeholder="Address" required>
+
+                        <button name="Submit" id="submit" class="btn btn-lg btn-primary btn-block">Registrera</button>
+                    </form>
+                    <!-- Form end -->
+
+                    <!-- Login link -->
+                    <a href="login.php" class="form-signin">Logga in</a>
+
+                    <!-- Result from AJAX -->
+                    <div id="message" class="form-signin"></div>
+                </div>
+                <!-- /container -->
+            </div>
+        </div>
+        <!-- /.row -->
+
+    </div>
+    <!-- /.container -->
+
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+    <!-- AJAX register script -->
+    <script src="js/register.js"></script>
+
+</body>
+
+</html>

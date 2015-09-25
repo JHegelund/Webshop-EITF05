@@ -9,7 +9,7 @@
             var dataString = 'inputEmail=' + email + '&inputPassword=' + password + '&inputAddress=' + address;
 
             $.ajax({
-                url: "register.php",
+                url: "registerservice.php",
                 type: "POST",
                 data: dataString,
                 cache: false,

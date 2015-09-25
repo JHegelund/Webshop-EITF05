@@ -8,7 +8,7 @@
             var dataString = 'inputEmail=' + email + '&inputPassword=' + password;
 
             $.ajax({
-                url: "login.php",
+                url: "loginservice.php",
                 type: "POST",
                 data: dataString,
                 cache: false,
