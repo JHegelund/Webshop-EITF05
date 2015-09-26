@@ -2,7 +2,11 @@
 
 session_start();
 ?>
-
+<style>
+.navbar-text {
+    margin-left: 15px;
+}
+</style>
 <!-- Navigation -->
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
         <div class="container">
@@ -14,7 +18,8 @@ session_start();
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.php">Webshop</a>
+                <a class="navbar-brand" href="index.php"><img style="max-width:35px; margin-top: -7px;"
+                src="/img/home.png"></a>
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -28,26 +33,30 @@ session_start();
                     <li>
                         <a href="#">Checka ut</a>
                     </li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
                     <li>
-                    <?php
-                    $t = isset($_SESSION['user']);
+                        <?php
+                            $t = isset($_SESSION['user']);
 
-                    if ($t) {
-                    $user = $_SESSION['user'];
-                    echo "<a>Inloggad som: $user</a>";
-                    } else {
-                    }
-                    ?>
+                            if ($t) {
+                                $user = $_SESSION['user'];
+                                echo "<p class=\"navbar-text\">Inloggad som: $user</p>";
+                            } else {
+                                // Do nothing
+                            }
+                        ?>
                     </li>
                     <li>
-                    <?php
-                    $t = isset($_SESSION['user']);
+                        <?php
+                        $t = isset($_SESSION['user']);
 
-                    if ($t) {
-                    echo "<a href=\"logoutservice.php\">Logga ut</a>";
-                    } else {
-                    }
-                    ?>
+                        if ($t) {
+                            echo "<a href=\"logoutservice.php\">Logga ut</a>";
+                        } else {
+                            // Do nothing
+                        }
+                        ?>
                     </li>
                 </ul>
             </div>
