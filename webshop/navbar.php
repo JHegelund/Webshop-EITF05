@@ -31,7 +31,7 @@ session_start();
                         <a href="products.php">Produkter</a>
                     </li>
                     <li>
-                        <a href="#">Checka ut</a>
+                        <a href="#">Varukorg</a>
                     </li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">

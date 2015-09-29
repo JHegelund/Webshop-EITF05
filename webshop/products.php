@@ -7,7 +7,7 @@ include ('header.php');
 include ('navbar.php')
 
 ?>
-
+<link href='css/messagebox.css' type='text/css' rel='stylesheet'/>
     <!-- Page Content -->
     <div class="container">
         <div class="row">
@@ -29,7 +29,7 @@ include ('navbar.php')
                             <div class="row">
                                 <div class="col-md-6">
 
-                                <button name="item1" id="item1" class="btn btn-primary btn-success btn-product"> <span class="glyphicon glyphicon-shopping-cart"></span> Köp</button>
+                                <button name="item1" id="Lundastout" class="btn btn-primary btn-success btn-product"> <span class="glyphicon glyphicon-shopping-cart"></span> Köp</button>
                                 <!--
                                     <a href="#" class="btn btn-success btn-product btn pull-right"><span class="glyphicon glyphicon-shopping-cart"></span> Buy</a> -->
                                 </div>
@@ -45,7 +45,7 @@ include ('navbar.php')
                         <div class="caption">
                             <div class="row">
                                 <div class="col-md-6 col-xs-6">
-                                    <h3>Joels IPA</h3>
+                                    <h3>JoelsIPA</h3>
                                 </div>
                                 <div class="col-md-6 col-xs-6 price">
                                     <h3>
@@ -56,7 +56,7 @@ include ('navbar.php')
                             <div class="row">
                                 <div class="col-md-6">
 
-                                <button name="item2" id="item2" class="btn btn-primary btn-success btn-product"> <span class="glyphicon glyphicon-shopping-cart"></span> Köp</button>
+                                <button name="item2" id="JoelsIPA" class="btn btn-primary btn-success btn-product"> <span class="glyphicon glyphicon-shopping-cart"></span> Köp</button>
                                 <!--
                                     <a href="#" class="btn btn-success btn-product btn pull-right"><span class="glyphicon glyphicon-shopping-cart"></span> Buy</a> -->
                                 </div>
@@ -83,7 +83,7 @@ include ('navbar.php')
                             <div class="row">
                                 <div class="col-md-6">
 
-                                <button name="item3" id="item3" class="btn btn-primary btn-success btn-product"> <span class="glyphicon glyphicon-shopping-cart"></span> Köp</button>
+                                <button name="item3" id="Valborgslager" class="btn btn-primary btn-success btn-product"> <span class="glyphicon glyphicon-shopping-cart"></span> Köp</button>
                                 <!--
                                     <a href="#" class="btn btn-success btn-product btn pull-right"><span class="glyphicon glyphicon-shopping-cart"></span> Buy</a> -->
                                 </div>
@@ -99,10 +99,14 @@ include ('navbar.php')
     </div>
     <!-- /.container -->
 
+    <div id="message" class="form-signin"></div>
+
     <!-- jQuery -->
     <script src="js/jquery.js"></script>
     <!-- Bootstrap Core JavaScript -->
     <script src="js/bootstrap.min.js"></script>
+    <!-- AJAX register script -->
+    <script src="js/product.js"></script>
 
 </body>
 

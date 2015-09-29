@@ -20,14 +20,40 @@ include ('navbar.php')
                     <form class="form-signin" id="register" name="register">
                         <h2 class="form-signin-heading">Registrera</h2>
 
-                        <label for="inputEmail" class="sr-only">Epost</label>
+                        <label for="inputEmail" class="sr-only">E-post</label>
                         <input type="email" id="inputEmail" class="form-control" placeholder="E-post" required autofocus>
+
+                        <br>
 
                         <label for="inputPassword" class="sr-only">Lösenord</label>
                         <input type="password" id="inputPassword" class="form-control" placeholder="Lösenord" required>
 
-                        <label for="inputAddress" class="sr-only">Address</label>
-                        <input type="address" id="inputAddress" class="form-control" placeholder="Address" required>
+                        <br>
+
+                        <label for="inputFirstname" class="sr-only">Förnamn</label>
+                        <input type="text" id="inputFirstname" class="form-control" placeholder="Förnamn" required>
+
+                        <br>
+
+                        <label for="inputLastname" class="sr-only">Efternamn</label>
+                        <input type="text" id="inputLastname" class="form-control" placeholder="Efternamn" required>
+
+                        <br>
+
+                        <label for="inputStreet" class="sr-only">Gatuadress</label>
+                        <input type="text" id="inputStreet" class="form-control" placeholder="Gatuadress" required>
+
+                        <br>
+
+                        <label for="inputZipcode" class="sr-only">Postnummer</label>
+                        <input type="text" id="inputZipcode" class="form-control" placeholder="Postnummer" required>
+
+                        <br>
+
+                        <label for="inputCity" class="sr-only">Stad</label>
+                        <input type="text" id="inputCity" class="form-control" placeholder="Stad" required>
+
+                        <br>
 
                         <button name="Submit" id="submit" class="btn btn-lg btn-primary btn-block">Registrera</button>
                     </form>
