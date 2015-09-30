@@ -1,6 +1,5 @@
 <?php
-	
-	//ob_start();
+
 	session_start();
 	include_once 'config.php';
 	// Connect to server and select databse.
@@ -32,54 +31,45 @@
 	$myCity = stripslashes($myCity);
 
 	$emailPattern = '/^(?!(?:(?:\\x22?\\x5C[\\x00-\\x7E]\\x22?)|(?:\\x22?[^\\x5C\\x22]\\x22?)){255,})(?!(?:(?:\\x22?\\x5C[\\x00-\\x7E]\\x22?)|(?:\\x22?[^\\x5C\\x22]\\x22?)){65,}@)(?:(?:[\\x21\\x23-\\x27\\x2A\\x2B\\x2D\\x2F-\\x39\\x3D\\x3F\\x5E-\\x7E]+)|(?:\\x22(?:[\\x01-\\x08\\x0B\\x0C\\x0E-\\x1F\\x21\\x23-\\x5B\\x5D-\\x7F]|(?:\\x5C[\\x00-\\x7F]))*\\x22))(?:\\.(?:(?:[\\x21\\x23-\\x27\\x2A\\x2B\\x2D\\x2F-\\x39\\x3D\\x3F\\x5E-\\x7E]+)|(?:\\x22(?:[\\x01-\\x08\\x0B\\x0C\\x0E-\\x1F\\x21\\x23-\\x5B\\x5D-\\x7F]|(?:\\x5C[\\x00-\\x7F]))*\\x22)))*@(?:(?:(?!.*[^.]{64,})(?:(?:(?:xn--)?[a-z0-9]+(?:-+[a-z0-9]+)*\\.){1,126}){1,}(?:(?:[a-z][a-z0-9]*)|(?:(?:xn--)[a-z0-9]+))(?:-+[a-z0-9]+)*)|(?:\\[(?:(?:IPv6:(?:(?:[a-f0-9]{1,4}(?::[a-f0-9]{1,4}){7})|(?:(?!(?:.*[a-f0-9][:\\]]){7,})(?:[a-f0-9]{1,4}(?::[a-f0-9]{1,4}){0,5})?::(?:[a-f0-9]{1,4}(?::[a-f0-9]{1,4}){0,5})?)))|(?:(?:IPv6:(?:(?:[a-f0-9]{1,4}(?::[a-f0-9]{1,4}){5}:)|(?:(?!(?:.*[a-f0-9]:){5,})(?:[a-f0-9]{1,4}(?::[a-f0-9]{1,4}){0,3})?::(?:[a-f0-9]{1,4}(?::[a-f0-9]{1,4}){0,3}:)?)))?(?:(?:25[0-5])|(?:2[0-4][0-9])|(?:1[0-9]{2})|(?:[1-9]?[0-9]))(?:\\.(?:(?:25[0-5])|(?:2[0-4][0-9])|(?:1[0-9]{2})|(?:[1-9]?[0-9]))){3}))\\]))$/iD';
-	//$passwordPattern = '/^[a-zA-Z0-9]$/';
-	//$firstnamePattern = '/^[a-zA-Z]*$/';
 	$passwordPattern = '/^(?=.*\d.*\d)[0-9A-Za-z!@#$%*]{8,}$/';
-	$firstnamePattern = '/^[a-zA-ZáàâäæãåèéêëîïíìôöòóøõûüùúÿñßÁÀÂÄÆÃÅÈÉÊËÎÏÍÌÔÖÒÓØÕÛÜÙÚŸÑß]$/ui';
-	$lastnamePattern = '/^[a-zA-ZáàâäæãåèéêëîïíìôöòóøõûüùúÿñßÁÀÂÄÆÃÅÈÉÊËÎÏÍÌÔÖÒÓØÕÛÜÙÚŸÑß]$/ui';
-	$streetPattern = '/^[a-zA-Z0-9]$/';
+	$firstnamePattern = '/^[A-Z]{1,}([A-Za-z\'-\'áàâäæãåèéêëîïíìôöòóøõûüùúÿñß ]*)$/';
+	$lastnamePattern ='/^[A-Z]{1,}([A-Za-z\'-\'áàâäæãåèéêëîïíìôöòóøõûüùúÿñß ]*)$/';
+	$streetPattern = '/^[0-9A-Z]{1,}([0-9A-Za-z\'-\'áàâäæãåèéêëîïíìôöòóøõûüùúÿñß ]*)$/'; 
 	$zipcodePattern = '/^[0-9]{5}$/';
-	$cityPattern = '/^[a-zA-Z]$/';
+	$cityPattern = '/^[A-Z]{1,}([A-Za-z\'-\'áàâäæãåèéêëîïíìôöòóøõûüùúÿñß ]*)$/';
 
 	if (preg_match($emailPattern, $myEmail) !== 1) {
 		echo "<div class=\"alert alert-danger alert-dismissable\"><button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-hidden=\"true\">&times;</button>Ange giltig e-postadress.</div>";
 		exit();
 	}
 	if (preg_match($passwordPattern, $myPassword) !== 1) {
-		echo "<div class=\"alert alert-danger alert-dismissable\"><button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-hidden=\"true\">&times;</button>Lösenordet måste innehålla både bokstäver och siffror samt vara minst 8 tecken långt.</div>";
+		echo "<div class=\"alert alert-danger alert-dismissable\"><button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-hidden=\"true\">&times;</button>Lösenordet måste vara minst 8 tecken långt och innehålla bokstäver eller !@#$%* och siffror.</div>";
 		exit();
 	}
 	if (preg_match($firstnamePattern, $myFirstname) !== 1) {
-		echo "<div class=\"alert alert-danger alert-dismissable\"><button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-hidden=\"true\">&times;</button>Ange giltigt förnamn.</div>";
+		echo "<div class=\"alert alert-danger alert-dismissable\"><button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-hidden=\"true\">&times;</button>Ange giltigt förnamn. Måste börja med stor bokstav.</div>";
 		exit();
 	}
 	if (preg_match($lastnamePattern, $myLastname) !== 1) {
-		echo "<div class=\"alert alert-danger alert-dismissable\"><button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-hidden=\"true\">&times;</button>Ange giltigt efternamn.</div>";
+		echo "<div class=\"alert alert-danger alert-dismissable\"><button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-hidden=\"true\">&times;</button>Ange giltigt efternamn. Måste börja med stor bokstav.</div>";
 		exit();
 	}
 	if (preg_match($streetPattern, $myStreet) !== 1) {
-		echo "<div class=\"alert alert-danger alert-dismissable\"><button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-hidden=\"true\">&times;</button>Ange giltig gatuadress;.</div>";
+		echo "<div class=\"alert alert-danger alert-dismissable\"><button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-hidden=\"true\">&times;</button>Ange giltig gatuadress. Måste börja med stor bokstav eller siffra.</div>";
 		exit();
 	}
 	if (preg_match($zipcodePattern, $myZipcode) !== 1) {
-		echo "<div class=\"alert alert-danger alert-dismissable\"><button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-hidden=\"true\">&times;</button>Ange postnummer på formen &rdquo;xxxxx&rdquo;.</div>";
+		echo "<div class=\"alert alert-danger alert-dismissable\"><button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-hidden=\"true\">&times;</button>Ange postnummer på formen XXXXX.</div>";
 		exit();
 	}
 	if (preg_match($cityPattern, $myCity) !== 1) {
-		echo "<div class=\"alert alert-danger alert-dismissable\"><button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-hidden=\"true\">&times;</button>Ange giltig stad.</div>";
+		echo "<div class=\"alert alert-danger alert-dismissable\"><button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-hidden=\"true\">&times;</button>Ange giltig stad. Måste börja med stor bokstav.</div>";
 		exit();
 	}
 
-	$hashedPassword = password_hash($mypassword, PASSWORD_DEFAULT);
+	$hashedPassword = password_hash($myPassword, PASSWORD_DEFAULT);
 		
 	$stmt = $db->query("INSERT INTO users VALUES ('$myEmail', '$hashedPassword', '$myFirstname', '$myLastname', '$myStreet', '$myZipcode', '$myCity')");
-	$myEmail = stripslashes($myEmail);
-	$myPassword = stripslashes($myPassword);
-	$myFirstname = stripslashes($myFirstname);
-	$myLastname = stripslashes($myLastname);
-	$myStreet = stripslashes($myStreet);
-	$myZipcode = stripslashes($myZipcode);
-	$myCity = stripslashes($myCity);
 
 
 	// True if user was inserted.
@@ -90,5 +80,4 @@
 		//return the error message
 		echo "<div class=\"alert alert-danger alert-dismissable\"><button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-hidden=\"true\">&times;</button>Användaren finns redan.</div>";
 	}
-	//ob_end_flush();
 ?>

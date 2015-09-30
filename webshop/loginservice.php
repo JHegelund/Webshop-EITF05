@@ -19,7 +19,7 @@
 	$myusername = stripslashes($myusername);
 	$mypassword = stripslashes($mypassword);
 
-	$sql = "SELECT passwd from users where username= ?";
+	$sql = "SELECT password from users where email= ?";
 
 	try {
 			$stmt = $db->prepare($sql);
