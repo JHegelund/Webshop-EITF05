@@ -4,8 +4,6 @@ $(document).ready(function() {
             e.preventDefault();
             var email = $("#inputEmail").val();
             var password = $("#inputPassword").val();
-            var email = $("#inputEmail").val();
-            var password = $("#inputPassword").val();
             var firstname = $("#inputFirstname").val();
             var lastname = $("#inputLastname").val();
             var street = $("#inputStreet").val();
