@@ -15,7 +15,11 @@ foreach ($productList as $item) {
 	$html .= " 1x</li>";
 }
 
-$html .= "</ul>";
+$html .= "</ul> <div class=\"container\"><div class=\"btn-group\"><button name=\"item1\" id=\"Lundastout\" class=\"btn btn-primary btn-success btn-product\"> <span class=\"glyphicon glyphicon glyphicon-usd\"></span> Checka ut</button><button name=\"emptybasket\" id=\"emptybasket\" class=\"btn btn-primary btn-warning btn-product\"> <span class=\"glyphicon glyphicon-shopping-cart\"></span> Töm Varukorg</button></div></div>";
+
+if(empty($productList)){
+	$html = "<div class=\"alert alert-info\">Varukorg tom.</div>";
+}
 
 ?>
 <link href='css/login.css' type='text/css' rel='stylesheet'/>
@@ -28,13 +32,7 @@ $html .= "</ul>";
                 <div class="container" id="list">
 
                 	<?php echo $html; ?>
-
-                	 <div class="container">
-                	 	<div class="btn-group">
-                        <button name="item1" id="Lundastout" class="btn btn-primary btn-success btn-product"> <span class="glyphicon glyphicon glyphicon-usd"></span> Checka ut</button>
-                        <button name="emptybasket" id="emptybasket" class="btn btn-primary btn-warning btn-product"> <span class="glyphicon glyphicon-shopping-cart"></span> Töm Varukorg</button>
-                        </div>
-                    </div>
+                	
                     <!-- Result from AJAX -->
                     <div id="message" class="form-signin"></div>
                 </div>
