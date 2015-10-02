@@ -1,0 +1,31 @@
+* Öppna https.conf
+
+* Ändra listen statement till ”listen 80”
+
+* Ändra servenamnet till ”localhost:80”
+
+* Ta bort # från det statement som lyder i https-ssl.conf:
+	Include /Applications/MAMP/conf/apache/extra/httpd-ssl.conf
+
+*Ändra SSLCertifikatFilens statement till:
+	~/Applications/MAMP/conf/ssl/server.crt
+
+* Ändra SSLCertfikatNyckelFils statement till:
+	~/Applications/MAMP/conf/ssl/server.key
+
+* Ändra Root i dokument till 
+	~/Applications/MAMP/htdocs
+
+* Ändra Applications/MAMP/Library/cgi-bin till:
+	~/Applications/MAMP/cgi-bin
+
+* Ta sedan bort # i httpd.conf framför
+	”Include /Applications/MAMP/conf/apache/extra/httpd-vhosts.conf”
+
+* Lägg sedan in följande kommando i httpd-vhost.conf 
+
+	NameVirtualHost *:80
+	<VirtualHost *:80>
+    		RewriteEngine On
+    		RewriteRule ^(.*)$ https://%{HTTP_HOST}$1 [R=301,L]
+	</VirtualHost>
