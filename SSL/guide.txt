@@ -1,0 +1,14 @@
+
+* Generera en privat nyckel
+openssl genrsa -des3 -out server.key 1024
+
+* Generera certifikat för att sigenera request
+openssl req -new -key server.key -out server.csr
+CA=localhost
+
+* Generera certifikat
+openssl x509 -req -days 365 -in server.csr -signkey server.key -out server.crt
+
+* Ta bort lösenord från servernyckeln
+cp server.key server.tmp
+openssl rsa -in server.tmp -out server.key
