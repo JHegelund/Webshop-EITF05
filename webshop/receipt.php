@@ -5,17 +5,21 @@ session_start();
 include ('header.php');
 include ('navbar.php');
 
-$productList = $_SESSION['basket'];
+$productList = $_SESSION['receipt'];
 
-$html = "<h2>Din varukorg:</h2><ul class=\"list-group form-signin\">";
+//$html = "";
+//print_r(array_values($productList));
+//if(!empty($productList) {
+
+$html = "<h2>Tack för din order!</h2><ul class=\"list-group form-signin\">";
 
 $totalprice = 0;
 $price = 0;
 
 foreach ($productList as $item) {
-	$html .= "<li class=\"list-group-item\">";
-	$html .= $item;
-	$html .= " x 1</li>";
+    $html .= "<li class=\"list-group-item\">";
+    $html .= $item;
+    $html .= " x 1</li>";
 
     if($item == "Lundastout") {
         $price = 23;
@@ -28,11 +32,12 @@ foreach ($productList as $item) {
     $totalPrice = $totalPrice + $price;
 }
 
-$html .= "</ul> <div class=\"container\"><h3>Totalt: $totalPrice:00 SEK</h3></br><div class=\"btn-group\"><button name=\"item1\" id=\"checkout\" class=\"btn btn-primary btn-success btn-product\"> <span class=\"glyphicon glyphicon glyphicon-usd\"></span> Gå till betalning</button><button name=\"emptybasket\" id=\"emptybasket\" class=\"btn btn-primary btn-warning btn-product\"> <span class=\"glyphicon glyphicon-shopping-cart\"></span> Töm Varukorg</button></div></div>";
+$html .= "</ul> <div class=\"container\"><h3>Totalt: $totalPrice:00 SEK</h3></div>";
 
-if(empty($productList)){
-	$html = "<div class=\"alert alert-info\">Varukorg tom.</div>";
-}
+//}
+
+unset($productList);
+unset($_SESSION['receipt']);
 
 ?>
 <link href='css/login.css' type='text/css' rel='stylesheet'/>
@@ -44,8 +49,8 @@ if(empty($productList)){
             <div class="col-lg-12 text-center">
                 <div class="container" id="list">
 
-                	<?php echo $html; ?>
-                	
+                    <?php echo $html; ?>
+                    
                     <!-- Result from AJAX -->
                     <div id="message" class="form-signin"></div>
                 </div>
@@ -56,6 +61,8 @@ if(empty($productList)){
 
     </div>
     <!-- /.container -->
+
+
 
     <!-- jQuery -->
     <script src="js/jquery.js"></script>
