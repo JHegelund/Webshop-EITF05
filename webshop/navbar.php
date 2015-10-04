@@ -1,12 +1,21 @@
 <?php
 
 session_start();
+$token= md5(uniqid());
+$_SESSION['token']= $token;
+
 ?>
 <style>
 .navbar-text {
     margin-left: 15px;
 }
 </style>
+
+<!-- jQuery -->
+<script src="js/jquery.js"></script>
+<!-- Logout -->
+<script src="js/logout.js"></script>
+
 <!-- Navigation -->
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
         <div class="container">
@@ -52,7 +61,7 @@ session_start();
                         $t = isset($_SESSION['user']);
 
                         if ($t) {
-                            echo "<a href=\"logoutservice.php\">Logga ut</a>";
+                            echo "<a href=\"#\" id=\"logout\">Logga ut</a>";
                         } else {
                             // Do nothing
                         }
@@ -61,6 +70,9 @@ session_start();
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
+            <form action="logoutservice.php" method="post" id="my_form" style="display: none;">
+                <input type="hidden" name="token" value="<?php echo $token; ?>" />
+            </form>
         </div>
         <!-- /.container -->
     </nav>

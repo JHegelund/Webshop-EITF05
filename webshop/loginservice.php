@@ -37,7 +37,6 @@
 	if(password_verify($mypassword, $passwd)){
 		$_SESSION['user'] = $myusername;
 		header('Location: login.php');
-		echo "<div class=\"alert alert-success\">Du är inloggad.</div>";
 	}
 	else {
 		//return the error message
