@@ -14,5 +14,4 @@ if ($token && $_POST['token']==$token) {
 
 }
 
-
 ?>
