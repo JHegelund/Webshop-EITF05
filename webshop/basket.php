@@ -39,7 +39,6 @@ if(empty($productList)){
 
     <!-- Page Content -->
     <div class="container">
-
         <div class="row">
             <div class="col-lg-12 text-center">
                 <div class="container" id="list">
@@ -53,7 +52,6 @@ if(empty($productList)){
             </div>
         </div>
         <!-- /.row -->
-
     </div>
     <!-- /.container -->
 

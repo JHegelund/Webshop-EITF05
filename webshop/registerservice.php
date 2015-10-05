@@ -72,12 +72,12 @@
 	$sql = "INSERT INTO users VALUES (?, ?, ?, ?, ?, ?, ?)";
 
 	try {
-			$stmt = $db->prepare($sql);
-			$stmt->execute(array($myEmail, $hashedPassword, $myFirstname, $myLastname, $myStreet, $myZipcode, $myCity));
-		} catch (PDOException $e) {
-			$error = "*** Internal error: " . $e->getMessage() . "<p>" . $query;
-			die($error);
-		}
+		$stmt = $db->prepare($sql);
+		$stmt->execute(array($myEmail, $hashedPassword, $myFirstname, $myLastname, $myStreet, $myZipcode, $myCity));
+	} catch (PDOException $e) {
+		$error = "*** Internal error: " . $e->getMessage() . "<p>" . $query;
+		die($error);
+	}
 
 	// True if user was inserted.
 	if($stmt){

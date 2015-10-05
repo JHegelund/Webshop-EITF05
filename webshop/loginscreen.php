@@ -2,20 +2,16 @@
 
 session_start();
 
-
 include ('header.php');
 include ('navbar.php');
-
 
 ?>
 <link href='css/login.css' type='text/css' rel='stylesheet'/>
     <!-- Page Content -->
     <div class="container">
-
         <div class="row">
             <div class="col-lg-12 text-center">
                 <div class="container">
-
                     <form class="form-signin" id="login" name="login">
                         <h2 class="form-signin-heading">Logga in</h2>
 
@@ -37,7 +33,6 @@ include ('navbar.php');
             </div>
         </div>
         <!-- /.row -->
-
     </div>
     <!-- /.container -->
 

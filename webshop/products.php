@@ -28,13 +28,9 @@ include ('navbar.php')
                             <p>Mörk och djup ton med smak av rostade kaffebönor och honung.</p>
                             <div class="row">
                                 <div class="col-md-6">
-
-                                <button name="item1" id="Lundastout" class="btn btn-primary btn-success btn-product"> <span class="glyphicon glyphicon-shopping-cart"></span> Köp</button>
-                                <!--
-                                    <a href="#" class="btn btn-success btn-product btn pull-right"><span class="glyphicon glyphicon-shopping-cart"></span> Buy</a> -->
+                                    <button name="item1" id="Lundastout" class="btn btn-primary btn-success btn-product"> <span class="glyphicon glyphicon-shopping-cart"></span> Köp</button>
                                 </div>
                             </div>
-
                             <p> </p>
                         </div>
                     </div>
@@ -55,13 +51,9 @@ include ('navbar.php')
                             <p>En härlig och frisk IPA med inslag av citrus och fläder.</p>
                             <div class="row">
                                 <div class="col-md-6">
-
-                                <button name="item2" id="JoelsIPA" class="btn btn-primary btn-success btn-product"> <span class="glyphicon glyphicon-shopping-cart"></span> Köp</button>
-                                <!--
-                                    <a href="#" class="btn btn-success btn-product btn pull-right"><span class="glyphicon glyphicon-shopping-cart"></span> Buy</a> -->
+                                    <button name="item2" id="JoelsIPA" class="btn btn-primary btn-success btn-product"> <span class="glyphicon glyphicon-shopping-cart"></span> Köp</button>
                                 </div>
                             </div>
-
                             <p> </p>
                         </div>
                     </div>
@@ -82,23 +74,19 @@ include ('navbar.php')
                             <p>En härlig ljus lager perfekt för varma sommardagar.</p>
                             <div class="row">
                                 <div class="col-md-6">
-
-                                <button name="item3" id="Valborgslager" class="btn btn-primary btn-success btn-product"> <span class="glyphicon glyphicon-shopping-cart"></span> Köp</button>
-                                <!--
-                                    <a href="#" class="btn btn-success btn-product btn pull-right"><span class="glyphicon glyphicon-shopping-cart"></span> Buy</a> -->
+                                    <button name="item3" id="Valborgslager" class="btn btn-primary btn-success btn-product"> <span class="glyphicon glyphicon-shopping-cart"></span> Köp</button>
                                 </div>
                             </div>
                             <p> </p>
                         </div>
                     </div>
                 </div>
-
             </div>
-
         </div>
     </div>
     <!-- /.container -->
 
+    <!-- Result from AJAX -->
     <div id="message" class="form-signin"></div>
 
     <!-- jQuery -->

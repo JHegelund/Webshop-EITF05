@@ -7,10 +7,6 @@ include ('navbar.php');
 
 $productList = $_SESSION['receipt'];
 
-//$html = "";
-//print_r(array_values($productList));
-//if(!empty($productList) {
-
 $html = "<h2>Tack för din order!</h2><ul class=\"list-group form-signin\">";
 
 $totalprice = 0;
@@ -34,8 +30,6 @@ foreach ($productList as $item) {
 
 $html .= "</ul> <div class=\"container\"><h3>Totalt: $totalPrice:00 SEK</h3></div>";
 
-//}
-
 unset($productList);
 unset($_SESSION['receipt']);
 
@@ -44,7 +38,6 @@ unset($_SESSION['receipt']);
 
     <!-- Page Content -->
     <div class="container">
-
         <div class="row">
             <div class="col-lg-12 text-center">
                 <div class="container" id="list">
@@ -58,11 +51,8 @@ unset($_SESSION['receipt']);
             </div>
         </div>
         <!-- /.row -->
-
     </div>
     <!-- /.container -->
-
-
 
     <!-- jQuery -->
     <script src="js/jquery.js"></script>

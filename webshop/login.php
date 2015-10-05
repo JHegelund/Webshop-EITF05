@@ -2,7 +2,6 @@
 
 session_start();
 
-
 include ('header.php');
 include ('navbar.php');
 $t = isset($_SESSION['user']);
@@ -14,4 +13,5 @@ echo "<link href='css/login.css' type='text/css' rel='stylesheet'/><div id=\"mes
 } else {
 include('loginscreen.php');
 }
+
 ?>

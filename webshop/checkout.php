@@ -15,19 +15,14 @@ include ('navbar.php');
 
     <!-- Page Content -->
     <div class="container">
-
         <div class="row">
             <div class="col-lg-12 text-center">
                 <div class="container">
-
                     <!-- Form start -->
                     <form class="form-signin" id="register" name="register">
                         <h2 class="form-signin-heading">Ange betalningsinformation:</h2>
-
                         <br>
-
                         <img src="img/creditcards.gif" class="img-responsive center-block" />
-
                         <br>
 
                         <div id="inputCardType" class="dropdown">
@@ -38,17 +33,17 @@ include ('navbar.php');
                                 <li><a href="#">Mastercard</a></li>
                             </ul>
                         </div>
-                 
+
                         <br>
 
                         <label for="inputCardNbr" class="sr-only">Kortnummer</label>
                         <input type="text" id="inputCardNbr" class="form-control" placeholder="Kortnummer" required autofocus>
-
+                        
                         <br>
 
                         <label for="inputCardName" class="sr-only">Kontokortsinnehavare</label>
                         <input type="text" id="inputCardName" class="form-control" placeholder="Kontokortsinnehavare" required>
-
+                        
                         <br>
 
                         <div class="dropdown">
@@ -68,7 +63,7 @@ include ('navbar.php');
                                 <li><a href="#">11</a></li>
                                 <li><a href="#">12</a></li>
                             </ul>
-                        </div>  
+                        </div>
 
                         <br>
 
@@ -83,7 +78,7 @@ include ('navbar.php');
                                 <li><a href="#">2019</a></li>
                                 <li><a href="#">2020</a></li>
                             </ul>
-                        </div>  
+                        </div>
 
                         <br>
 
@@ -92,19 +87,17 @@ include ('navbar.php');
 
                         <br>
                         <br>
-
+                        
                         <button name="Submit" id="submit" class="btn btn-lg btn-primary btn-block">Betala</button>
                     </form>
                     <!-- Form end -->
                     <!-- Result from AJAX -->
                     <div id="message" class="form-signin"></div>
-
                 </div>
                 <!-- /container -->
             </div>
         </div>
         <!-- /.row -->
-
     </div>
     <!-- /.container -->
 
