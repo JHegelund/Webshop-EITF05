@@ -1,6 +1,7 @@
 # Webshop
 
 The goal of this project is to create a secure webshop.
+Config files with guides are located in config- and SSL folder.
 
 ![alt tag](https://raw.githubusercontent.com/NiclasLovdahl/EITF05/master/webshop.png)
 
